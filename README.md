@@ -9,8 +9,8 @@
 
 ## BEFORE YOU START
 - Make sure to watch the two INTRO videos before you start: 
-  * [INTRO UI VIDEO](https://www.loom.com/share/83055c83ee8f4838bc7b04b86d8d1844)
-  * [INTRO REPO VIDEO](https://www.loom.com/share/d09fb1c4653d496d9439c12b997a008d)
+  * [END OF EXERCISE EXPECTATIONS VIDEO](https://www.loom.com/share/83055c83ee8f4838bc7b04b86d8d1844)
+  * [REPO CONTENTS DESCRIPTION VIDEO](https://www.loom.com/share/d09fb1c4653d496d9439c12b997a008d)
 - There are 3 pages in the **pages** folder. They are all set to work properly if the code is written correctly in the files of the **exercises** folder and do NOT require any changes/updates
 - The **exercise-info** folder contains the information about the methods and documentation pieces you will use when solving the tasks. Please make sure to pay attention to what is asked before you start the exercise in the exercise file.
 - The exercise files (the only files you can change or update) are in the **exercises** folder.
