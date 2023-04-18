@@ -26,7 +26,7 @@
 /**
  * @hint
  * Here is a plan of how you can structure your code. You can follow it or choose your own way to go
- * * Select the container by ID that holds all the items
+ * * Select the container that holds all the items
  * * Create a function that sets the background to be red for the item with an id listed in favorites LS
  * * Run this function
  * * Create a function that adds an id to favorites LS by id passed as an argument
