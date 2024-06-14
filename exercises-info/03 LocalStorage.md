@@ -26,49 +26,52 @@ To find the local/session storage data you need to:
 
 ```JS
 // Create a localStorage property key and set the value
-localStorage.setItem("MyList", "Tom");
+localStorage.setItem('MyList', 'Tom');
 
 // Get the string value of a localStorage item by a key
-const list = localStorage.getItem("MyList");
+const list = localStorage.getItem('MyList');
 
-// Remove the property and the value from localStorage
-localStorage.removeItem("MyList");
+// Remove the property and it's value from localStorage
+localStorage.removeItem('MyList');
 
 // Wipe out the current localStorage contents
 localStorage.clear();
 
 // Update the property of a localStorage item
-// lets say we want to add "Jerry" to the
+// lets say we want to add "Jerry" and "Emma" to the
 // lonely "Tom" in the MyList localStorage property
-// Set the item of 'favorites' with a value of 'Tom' in the localStorage
-localStorage.setItem("MyList", "Tom");
+// Set the item of 'MyList' with a value of 'Tom' in the localStorage
+localStorage.setItem('MyList', 'Tom');
 
-// Declare the value we are going to add to the localStorage 'favorites' property
-const newItem = 'Jerry';
+// Declare the value we are going to add to the localStorage 'MyList' property
+const newItems = 'Jerry,Emma';
 
 // Get the value of a current localStorage property
-let storageData = localStorage.getItem("MyList");
+let storageData = localStorage.getItem('MyList');
 
 // Add the desired new value separated by a comma
-storageData += `,${newItem}`;
+storageData += `,${newItems}`;
 
 // Update the value of the property with a new value.
-localStorage.setItem("MyList", storageData);
+localStorage.setItem('MyList', storageData);
 
 // Let's now delete 'Tom' from that storage value
-// Jerry wants to stay.
+// Jerry and Emma want to stay.
 // We will store tom's name in a constant first
-const itemToDelete = "Tom";
+const itemToDelete = 'Tom';
 
-// Get all the string value of the storage property, create an array
-// of items right away with a split method with a comma-separator
-const storageArr = localStorage.getItem("MyList").split(',');
+// Get the string value of the storage property, create an array
+// of items right away with a split method and a comma as a separator
+const storageArr = localStorage.getItem('MyList').split(',');
 
 // Delete tom from the array
-storageArr.splice(storageArr.indexOf(itemToDelete), 1).join(',');
+storageArr.splice(storageArr.indexOf(itemToDelete), 1);
+
+// Prepare the new string for the "MyList" localStorage value
+const updatedMyListValue = storageArr.join(',');
 
 // Set the new value of the storage property
-localStorage.setItem("MyList", storageArr);
+localStorage.setItem('MyList', updatedMyListValue);
 ```
 
 ## JSON stringify() and parse() methods with Local/Session Storage
