@@ -38,3 +38,52 @@
  */
 
 // Your code goes here...
+const container = document.querySelector(".cardsContainer");
+
+const setColor = (card, isFav) => {
+  card.dataset.fav = isFav;
+  card.style.backgroundColor = isFav === "true" ? "red" : "white";
+};
+
+const addFav = (id) => {
+  let favItems = JSON.parse(localStorage.getItem("fav") || "[]");
+  if (!favItems.includes(id)) {
+    favItems.push(id);
+    localStorage.setItem("fav", JSON.stringify(favItems));
+  }
+};
+
+const removeFav = (id) => {
+  let favItems = JSON.parse(localStorage.getItem("fav") || "[]");
+  favItems = favItems.filter((item) => item !== id);
+  localStorage.setItem("fav", JSON.stringify(favItems));
+};
+
+const toggleFav = (container) => {
+  const items = container.querySelectorAll(".card");
+  items.forEach((card) => {
+    card.addEventListener("click", () => {
+      const cardId = card.id;
+      const isFav = card.dataset.fav === "true";
+
+      isFav
+        ? (setColor(card, "false"), removeFav(cardId))
+        : (setColor(card, "true"), addFav(cardId));
+    });
+  });
+};
+
+const activateFavs = (container) => {
+  const favItems = JSON.parse(localStorage.getItem("fav") || "[]");
+  favItems.forEach((id) => {
+    const cardId = document.getElementById(id);
+    if (cardId) {
+      setColor(cardId, "true");
+    }
+  });
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  activateFavs(container);
+  toggleFav(container);
+});
