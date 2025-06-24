@@ -60,16 +60,15 @@ const removeFav = (id) => {
 };
 
 const toggleFav = (container) => {
-  const items = container.querySelectorAll(".card");
-  items.forEach((card) => {
-    card.addEventListener("click", () => {
-      const cardId = card.id;
-      const isFav = card.dataset.fav === "true";
+  container.addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+    if (!card) return;
 
-      isFav
-        ? (setColor(card, "false"), removeFav(cardId))
-        : (setColor(card, "true"), addFav(cardId));
-    });
+    const cardId = card.id;
+    const isFav = card.dataset.fav === "true";
+    isFav
+      ? (setColor(card, "false"), removeFav(cardId))
+      : (setColor(card, "true"), addFav(cardId));
   });
 };
 

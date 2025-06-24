@@ -45,13 +45,13 @@ const favs = document.getElementById("favs");
 const updateCollections = (id, direction) => {
   const target = document.getElementById(id);
   const targetIcon = target.querySelector("i");
-  direction === "toMain"
-    ? (main.append(target),
-      targetIcon.classList.remove("fa-heart-crack"),
-      targetIcon.classList.add("fa-heart-circle-plus"))
-    : (favs.append(target),
-      targetIcon.classList.remove("fa-heart-circle-plus"),
-      targetIcon.classList.add("fa-heart-crack"));
+  const isFav = direction === "toMain" ? main : favs;
+  isFav.appendChild(target);
+  if (targetIcon) {
+    direction === "toMain"
+      ? targetIcon.classList.replace("fa-heart-crack", "fa-heart-circle-plus")
+      : targetIcon.classList.replace("fa-heart-circle-plus", "fa-heart-crack");
+  }
 };
 /**
  * @task
